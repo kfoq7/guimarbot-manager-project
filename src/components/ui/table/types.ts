@@ -6,7 +6,8 @@ export type TableOptions<T> = {
 }
 
 export type TableStackOptions = {
-  serachInput: boolean
+  serachInput?: boolean
+  isLoding?: true
 }
 
 export type TableStackProps<T> = TableOptions<T> & TableStackOptions

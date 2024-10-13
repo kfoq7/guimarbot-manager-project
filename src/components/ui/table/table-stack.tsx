@@ -28,6 +28,7 @@ export const TableStack = () => {
     data: [{ id: 123 }, { id: 124 }, { id: 125 }],
     columns,
     state: {},
+    manualPagination: true,
     getCoreRowModel: getCoreRowModel()
   })
 
@@ -53,7 +54,7 @@ export const TableStack = () => {
           </thead>
           <tbody>
             {table.getRowModel().rows.length ? (
-              table.getRowModel().rows.map((row, i) => (
+              table.getRowModel().rows.map(row => (
                 <tr key={row.id} className={'bg-gray-50/20'}>
                   {row.getVisibleCells().map(cell => (
                     <td key={cell.id} className="px-3.5 py-2">

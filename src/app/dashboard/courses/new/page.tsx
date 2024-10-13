@@ -1,10 +1,12 @@
+'use client'
+
 import { Title } from '@/components/ui/title'
 
-export default function Grades() {
+export default function NewCourse() {
   return (
     <>
       <div>
-        <Title>Becas</Title>
+        <Title>Crea un nuevo curso</Title>
       </div>
     </>
   )
