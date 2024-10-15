@@ -8,7 +8,7 @@ const sections = [
   {
     id: 1,
     to: '/dashboard',
-    name: 'Dashboard'
+    name: 'Home'
   },
   {
     id: 2,
@@ -29,6 +29,11 @@ const sections = [
     id: 5,
     to: '/dashboard/grades',
     name: 'Becas'
+  },
+  {
+    id: 6,
+    to: '/dashboard/inbox',
+    name: 'Bandeje de entrada'
   }
 ]
 

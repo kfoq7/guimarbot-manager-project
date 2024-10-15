@@ -12,7 +12,7 @@ export default function Login() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-28">
       <h1 className="mx-auto max-w-[20ch] text-balance text-center text-5xl font-bold tracking-tighter md:text-7xl md:leading-[1.16]">
-        Inicia Sesion
+        Guimarbot 
       </h1>
 
       <div className="mx-auto mt-6 w-full max-w-md rounded-md border px-5 py-4">

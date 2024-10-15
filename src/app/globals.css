@@ -6,7 +6,8 @@
   --background: #ffffff;
   --foreground: #171717;
   color-scheme: light;
-  scrollbar-gutter: stable;
+  overflow: hidden;
+  /* scrollbar-gutter: stable; */
 }
 
 /* @media (prefers-color-scheme: dark) {
