@@ -1,18 +1,45 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 export default function Login() {
   const navigation = useRouter()
 
-  const handleOnSubmit = () => {
-    navigation.push('/dashboard')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+
+  const handleOnSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    try {
+      const response = await fetch('http://localhost:5006/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        navigation.push('/dashboard');
+      } else {
+        const errorData = await response.json();
+        setError(errorData.message);
+      }
+    } catch (err) {
+      setError(err.message);
+    }
   }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-28">
       <h1 className="mx-auto max-w-[20ch] text-balance text-center text-5xl font-bold tracking-tighter md:text-7xl md:leading-[1.16]">
-        Guimarbot 
+        Inicia Sesion
       </h1>
 
       <div className="mx-auto mt-6 w-full max-w-md rounded-md border px-5 py-4">
@@ -22,6 +49,7 @@ export default function Login() {
             <input
               className="w-full rounded-md border border-gray-500/20 px-3 py-2 outline-none"
               type="text"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="w-full">
@@ -29,6 +57,7 @@ export default function Login() {
             <input
               type="password"
               className="w-full rounded-md border border-gray-500/20 px-3 py-2 outline-none"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
